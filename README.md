@@ -2,14 +2,15 @@
 
 The network troubleshooting framework using MINT is a framework that allows the collection of network state information from the data plane using MINT and analysing the collected data to identify the root cause of a network problem/anomaly or in other words troubleshooting the network issues.
 
-# Topology
+## Topology
 ![](/topology.jpg)
 
-# Setup
+## Setup
 1. Setup the P4 virtual machine. P4.org have created a VM with everything needed to work on the P4 tutorial exercises, including the P4 Compiler, Behavioral Model, starter code, and editors. Download and run the VM. For downoading the VM refer to Virtual Machine section under Beginner's Track [https://p4.org/events/2019-04-30-p4-developer-day/]
-2. On the VM in the P4 folder checkout the repository under the exercises folder.
+2. After downloading the VM, use any free and open source hypervisor like VirtualBox for importing and running the VM.
+3. After installing the VM, in the P4 folder checkout the repository under the exercises folder.
 
-# Run
+## Run
 For running the framework execute the following commands in order:
 1. Cleanup any logs or pcap files  
 ```
@@ -26,7 +27,7 @@ For running the framework execute the following commands in order:
     python controller.py
 ```
 
-4. Also, start the data collector application i.e. **collector.py** and data debugger application i.e. **debug.py** in sepratae terminals.
+4. Also, start the data collector application i.e. **collector.py** and data debugger application i.e. **debug.py** in separate terminals.
  ```
      python collector.py
      python debug.py
@@ -49,3 +50,10 @@ For running the framework execute the following commands in order:
 ```
 
 10. Interact with the debug.py application to query required network statistics like queuing delay, packet route, total switching delay etc.
+
+## Minimum System Requirements
+1. Operating system - Any OS like Windows, Ubuntu
+2. A hypervisor like virtual box for running the VM.
+3. Disk space of 8-10 GB
+4. Ram - atleast 4 GB
+3.
