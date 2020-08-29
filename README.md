@@ -12,22 +12,28 @@ The network troubleshooting framework using MINT is a framework that allows the 
 # Run
 For running the framework execute the following commands in order:
 1. Cleanup any logs or pcap files
-```make clean```
+```make clean
+```
 
 2. Start the framework 
-```make run```
+```make run
+```
 
 3. In the mininet terminal start the xterms for h1, h2 (hosts) and live server (h3), static server(h4)
-```xterm h1 h2 h3 h4```
+```xterm h1 h2 h3 h4
+```
 
 4. In a command window, start the controller.
-```python controller.py```
+```python controller.py
+```
 
 5. In the xterm terminals for live server and static server, execute the terminator.py program
-```python treminate.py```
+```python treminate.py
+```
 
 6. In the xterm terminals for host h1 and/or h2 execute the send.py prgram by specifying the destination IP and message to send the packets to live server or static server
-```python send.py "10.0.4.4"  "Sending message to static server"```
+```python send.py "10.0.4.4"  "Sending message to static server"
+```
 
 7. Now in the controller window switch on the MINT process by typing 1.
 
