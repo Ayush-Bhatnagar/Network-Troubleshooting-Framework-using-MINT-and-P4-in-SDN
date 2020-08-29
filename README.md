@@ -1,6 +1,6 @@
 # Network-Troubleshooting-Framework-using-MINT-and-P4-in-SDN
 
-The network troubleshooting framework using MINT is a framework that allows the collection of network state information from the data plane using MINT and analysing the collected data to identify the root cause of a network problem/anomaly or in other words troubleshooting the network issues.
+The network troubleshooting framework using MINT is a framework that allows the collection of network state information from the data plane without the involvement of control plane using MINT and analysing the collected data to identify a network problem/anomaly or in other words troubleshooting the network issues.
 
 ## Topology
 ![](/topology.jpg)
@@ -56,4 +56,3 @@ For running the framework execute the following commands in order:
 2. A hypervisor like virtual box for running the VM.
 3. Disk space of 8-10 GB
 4. Ram - atleast 4 GB
-3.
