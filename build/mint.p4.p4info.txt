@@ -1,0 +1,135 @@
+pkg_info {
+  arch: "v1model"
+}
+tables {
+  preamble {
+    id: 33576811
+    name: "MyIngress.label_match"
+    alias: "label_match"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.mpls[0].label_id"
+    bitwidth: 20
+    match_type: EXACT
+  }
+  action_refs {
+    id: 16798708
+  }
+  action_refs {
+    id: 16805608
+  }
+  size: 30
+}
+tables {
+  preamble {
+    id: 33556557
+    name: "MyIngress.attach_label"
+    alias: "attach_label"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.ipv4.dstAddr"
+    bitwidth: 32
+    match_type: LPM
+  }
+  action_refs {
+    id: 16824984
+  }
+  action_refs {
+    id: 16805608
+  }
+  size: 30
+}
+tables {
+  preamble {
+    id: 33608958
+    name: "MyIngress.mint_status"
+    alias: "mint_status"
+  }
+  action_refs {
+    id: 16795618
+  }
+  action_refs {
+    id: 16800567
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 33615084
+    name: "MyEgress.switch_id"
+    alias: "switch_id"
+  }
+  action_refs {
+    id: 16795729
+  }
+  action_refs {
+    id: 16800567
+  }
+  size: 1024
+}
+actions {
+  preamble {
+    id: 16800567
+    name: "NoAction"
+    alias: "NoAction"
+  }
+}
+actions {
+  preamble {
+    id: 16798708
+    name: "MyIngress.tunnel_forward"
+    alias: "tunnel_forward"
+  }
+  params {
+    id: 1
+    name: "port"
+    bitwidth: 9
+  }
+}
+actions {
+  preamble {
+    id: 16805608
+    name: "MyIngress.drop"
+    alias: "drop"
+  }
+}
+actions {
+  preamble {
+    id: 16795618
+    name: "MyIngress.enable_mint"
+    alias: "enable_mint"
+  }
+  params {
+    id: 1
+    name: "status_bit"
+    bitwidth: 8
+  }
+}
+actions {
+  preamble {
+    id: 16824984
+    name: "MyIngress.set_label"
+    alias: "set_label"
+  }
+  params {
+    id: 1
+    name: "label"
+    bitwidth: 20
+  }
+}
+actions {
+  preamble {
+    id: 16795729
+    name: "MyEgress.set_switch_id"
+    alias: "set_switch_id"
+  }
+  params {
+    id: 1
+    name: "switch_id"
+    bitwidth: 31
+  }
+}
+type_info {
+}

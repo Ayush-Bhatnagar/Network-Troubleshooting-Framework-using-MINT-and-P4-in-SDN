@@ -1,0 +1,2655 @@
+{
+  "header_types" : [
+    {
+      "name" : "scalars_0",
+      "id" : 0,
+      "fields" : [
+        ["tmp", 1, false],
+        ["tmp_0", 1, false],
+        ["key_0", 20, false],
+        ["metadata.status", 8, false],
+        ["_padding_0", 2, false]
+      ]
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "fields" : [
+        ["ingress_port", 9, false],
+        ["egress_spec", 9, false],
+        ["egress_port", 9, false],
+        ["clone_spec", 32, false],
+        ["instance_type", 32, false],
+        ["drop", 1, false],
+        ["recirculate_port", 16, false],
+        ["packet_length", 32, false],
+        ["enq_timestamp", 32, false],
+        ["enq_qdepth", 19, false],
+        ["deq_timedelta", 32, false],
+        ["deq_qdepth", 19, false],
+        ["ingress_global_timestamp", 48, false],
+        ["egress_global_timestamp", 48, false],
+        ["lf_field_list", 32, false],
+        ["mcast_grp", 16, false],
+        ["resubmit_flag", 32, false],
+        ["egress_rid", 16, false],
+        ["checksum_error", 1, false],
+        ["recirculate_flag", 32, false],
+        ["parser_error", 32, false],
+        ["_padding", 5, false]
+      ]
+    },
+    {
+      "name" : "ethernet_t",
+      "id" : 2,
+      "fields" : [
+        ["dstAddr", 48, false],
+        ["srcAddr", 48, false],
+        ["etherType", 16, false]
+      ]
+    },
+    {
+      "name" : "ipv4_t",
+      "id" : 3,
+      "fields" : [
+        ["version", 4, false],
+        ["ihl", 4, false],
+        ["diffserv", 8, false],
+        ["totalLen", 16, false],
+        ["identification", 16, false],
+        ["flags", 3, false],
+        ["fragOffset", 13, false],
+        ["ttl", 8, false],
+        ["protocol", 8, false],
+        ["hdrChecksum", 16, false],
+        ["srcAddr", 32, false],
+        ["dstAddr", 32, false]
+      ]
+    },
+    {
+      "name" : "mint_hdr_t",
+      "id" : 4,
+      "fields" : [
+        ["version", 4, false],
+        ["gns", 4, false],
+        ["next_header", 8, false],
+        ["flags", 8, false],
+        ["max_len", 8, false]
+      ]
+    },
+    {
+      "name" : "tcp_t",
+      "id" : 5,
+      "fields" : [
+        ["srcPort", 16, false],
+        ["dstPort", 16, false],
+        ["seqNo", 32, false],
+        ["ackNo", 32, false],
+        ["dataOffset", 4, false],
+        ["res", 4, false],
+        ["flags", 8, false],
+        ["window", 16, false],
+        ["checksum", 16, false],
+        ["urgentPtr", 16, false]
+      ]
+    },
+    {
+      "name" : "udp_t",
+      "id" : 6,
+      "fields" : [
+        ["srcPort", 16, false],
+        ["dstPort", 16, false],
+        ["length_", 16, false],
+        ["checksum", 16, false]
+      ]
+    },
+    {
+      "name" : "mint_metadata_hdr_t",
+      "id" : 7,
+      "fields" : [
+        ["action_vector", 8, false],
+        ["request_vector", 8, false],
+        ["hop_limit", 8, false],
+        ["current_length", 8, false]
+      ]
+    },
+    {
+      "name" : "mpls_t",
+      "id" : 8,
+      "fields" : [
+        ["label_id", 20, false],
+        ["tc", 3, false],
+        ["bos", 1, false],
+        ["ttl", 8, false]
+      ]
+    },
+    {
+      "name" : "mint_metadata_t",
+      "id" : 9,
+      "fields" : [
+        ["bos", 1, false],
+        ["switch_id", 31, false],
+        ["deq_timedelta", 32, false],
+        ["enq_qdepth", 32, false],
+        ["delay_at_switch", 48, false],
+        ["ingress_port", 12, false],
+        ["egress_port", 12, false]
+      ]
+    }
+  ],
+  "headers" : [
+    {
+      "name" : "scalars",
+      "id" : 0,
+      "header_type" : "scalars_0",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "header_type" : "standard_metadata",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ethernet",
+      "id" : 2,
+      "header_type" : "ethernet_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv4",
+      "id" : 3,
+      "header_type" : "ipv4_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "mint_hdr",
+      "id" : 4,
+      "header_type" : "mint_hdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "tcp",
+      "id" : 5,
+      "header_type" : "tcp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "udp",
+      "id" : 6,
+      "header_type" : "udp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "mint_metadata_hdr",
+      "id" : 7,
+      "header_type" : "mint_metadata_hdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "mpls[0]",
+      "id" : 8,
+      "header_type" : "mpls_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "mpls[1]",
+      "id" : 9,
+      "header_type" : "mpls_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "mpls[2]",
+      "id" : 10,
+      "header_type" : "mpls_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "mint_metadata[0]",
+      "id" : 11,
+      "header_type" : "mint_metadata_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "mint_metadata[1]",
+      "id" : 12,
+      "header_type" : "mint_metadata_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "mint_metadata[2]",
+      "id" : 13,
+      "header_type" : "mint_metadata_t",
+      "metadata" : false,
+      "pi_omit" : true
+    }
+  ],
+  "header_stacks" : [
+    {
+      "name" : "mpls",
+      "id" : 0,
+      "header_type" : "mpls_t",
+      "size" : 3,
+      "header_ids" : [8, 9, 10]
+    },
+    {
+      "name" : "mint_metadata",
+      "id" : 1,
+      "header_type" : "mint_metadata_t",
+      "size" : 3,
+      "header_ids" : [11, 12, 13]
+    }
+  ],
+  "header_union_types" : [],
+  "header_unions" : [],
+  "header_union_stacks" : [],
+  "field_lists" : [],
+  "errors" : [
+    ["NoError", 1],
+    ["PacketTooShort", 2],
+    ["NoMatch", 3],
+    ["StackOutOfBounds", 4],
+    ["HeaderTooShort", 5],
+    ["ParserTimeout", 6],
+    ["ParserInvalidArgument", 7]
+  ],
+  "enums" : [],
+  "parsers" : [
+    {
+      "name" : "parser",
+      "id" : 0,
+      "init_state" : "start",
+      "parse_states" : [
+        {
+          "name" : "start",
+          "id" : 0,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ethernet"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x0800",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x8847",
+              "mask" : null,
+              "next_state" : "parse_mpls"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_mpls",
+          "id" : 1,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "stack",
+                  "value" : "mpls"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x00",
+              "mask" : null,
+              "next_state" : "parse_mpls"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "stack_field",
+              "value" : ["mpls", "bos"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_ipv4",
+          "id" : 2,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv4"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x06",
+              "mask" : null,
+              "next_state" : "parse_tcp"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x11",
+              "mask" : null,
+              "next_state" : "parse_udp"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xfd",
+              "mask" : null,
+              "next_state" : "parse_mint_hdr"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_mint_hdr",
+          "id" : 3,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "mint_hdr"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x06",
+              "mask" : null,
+              "next_state" : "parse_tcp"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x11",
+              "mask" : null,
+              "next_state" : "parse_udp"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["mint_hdr", "next_header"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_tcp",
+          "id" : 4,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "tcp"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "?",
+                      "left" : {
+                        "type" : "hexstr",
+                        "value" : "0x01"
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00"
+                      },
+                      "cond" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "d2b",
+                          "left" : null,
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["mpls[1]", "$valid$"]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x01",
+              "mask" : null,
+              "next_state" : "parse_mint_metadata_hdr"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_udp",
+          "id" : 5,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "udp"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_0"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "?",
+                      "left" : {
+                        "type" : "hexstr",
+                        "value" : "0x01"
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00"
+                      },
+                      "cond" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "d2b",
+                          "left" : null,
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["mpls[1]", "$valid$"]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x01",
+              "mask" : null,
+              "next_state" : "parse_mint_metadata_hdr"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_mint_metadata_hdr",
+          "id" : 6,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "mint_metadata_hdr"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["mint_metadata_hdr", "hop_limit"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "+",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["mint_metadata_hdr", "hop_limit"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x00",
+              "mask" : null,
+              "next_state" : null
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : "parse_metadata"
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata_hdr", "hop_limit"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_metadata",
+          "id" : 7,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "stack",
+                  "value" : "mint_metadata"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x01",
+              "mask" : null,
+              "next_state" : null
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00",
+              "mask" : null,
+              "next_state" : "parse_metadata"
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "stack_field",
+              "value" : ["mint_metadata", "bos"]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "parse_vsets" : [],
+  "deparsers" : [
+    {
+      "name" : "deparser",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "mint.p4",
+        "line" : 400,
+        "column" : 8,
+        "source_fragment" : "MyDeparser"
+      },
+      "order" : ["ethernet", "mpls[0]", "mpls[1]", "mpls[2]", "ipv4", "mint_hdr", "tcp", "udp", "mint_metadata_hdr", "mint_metadata[0]", "mint_metadata[1]", "mint_metadata[2]"]
+    }
+  ],
+  "meter_arrays" : [],
+  "counter_arrays" : [],
+  "register_arrays" : [],
+  "calculations" : [
+    {
+      "name" : "calc",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "mint.p4",
+        "line" : 378,
+        "column" : 1,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    }
+  ],
+  "learn_lists" : [],
+  "actions" : [
+    {
+      "name" : "NoAction",
+      "id" : 0,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyIngress.tunnel_forward",
+      "id" : 1,
+      "runtime_data" : [
+        {
+          "name" : "port",
+          "bitwidth" : 9
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 228,
+            "column" : 5,
+            "source_fragment" : "standard_metadata.egress_spec = port"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 2,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 232,
+            "column" : 5,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 3,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 232,
+            "column" : 5,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.enable_mint",
+      "id" : 4,
+      "runtime_data" : [
+        {
+          "name" : "status_bit",
+          "bitwidth" : 8
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.status"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 236,
+            "column" : 5,
+            "source_fragment" : "meta.status = status_bit"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.set_label",
+      "id" : 5,
+      "runtime_data" : [
+        {
+          "name" : "label",
+          "bitwidth" : 20
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[0]", "label_id"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 240,
+            "column" : 5,
+            "source_fragment" : "hdr.mpls[0].label_id = label"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act",
+      "id" : 6,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x8847"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 10,
+            "column" : 26,
+            "source_fragment" : "0x8847; ..."
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "mpls[0]"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 281,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[0].setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[0]", "bos"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 282,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[0].bos = (bit<1>) 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[0]", "tc"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 283,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[0].tc = (bit<3>) 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[0]", "ttl"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 284,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[0].ttl = (bit<8>) 255"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_0",
+      "id" : 7,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[0]", "bos"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 289,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[0].bos = (bit<1>) 0"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "mpls[1]"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 290,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[1].setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[1]", "label_id"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000f"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 291,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[1].label_id = (bit<20>) 15"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[1]", "tc"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 292,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[1].tc = (bit<3>) 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[1]", "bos"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 293,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[1].bos = (bit<1>) 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[1]", "ttl"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 294,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[1].ttl = (bit<8>) 255"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "mpls[2]"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 295,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[2].setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[2]", "label_id"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x000010"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 296,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[2].label_id = (bit<20>) 16"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[2]", "tc"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 297,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[2].tc = (bit<3>) 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[2]", "bos"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 298,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[2].bos = (bit<1>) 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mpls[2]", "ttl"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 299,
+            "column" : 2,
+            "source_fragment" : "hdr.mpls[2].ttl = (bit<8>) 255"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "mint_hdr"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 300,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_hdr.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_hdr", "version"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x02"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 301,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_hdr.version = (bit<4>) 2"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_hdr", "gns"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 14,
+            "column" : 19,
+            "source_fragment" : "0x1; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_hdr", "next_header"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 303,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_hdr.next_header = (bit<8>) hdr.ipv4.protocol"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xfd"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 13,
+            "column" : 29,
+            "source_fragment" : "0xFD; /* Experimetal value*/ ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_hdr", "flags"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x04"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 305,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_hdr.flags = (bit<8>) 0x04"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_hdr", "max_len"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 306,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_hdr.max_len = (bit<8>) 0"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "mint_metadata_hdr"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 307,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata_hdr.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata_hdr", "action_vector"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 308,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata_hdr.action_vector = (bit<8>) 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata_hdr", "request_vector"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1f"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 15,
+            "column" : 30,
+            "source_fragment" : "0x1F; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata_hdr", "hop_limit"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x03"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 310,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata_hdr.hop_limit = (bit<8>) 4 -1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata_hdr", "current_length"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 311,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata_hdr.current_length = (bit<8>) 0"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "mint_metadata[0]"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 312,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata[0].setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "bos"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 313,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata[0].bos = (bit<1>) 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "switch_id"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 314,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata[0].switch_id = (bit<31>) 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "deq_timedelta"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 315,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata[0].deq_timedelta = (bit<32>) 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "enq_qdepth"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 316,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata[0].enq_qdepth = (bit<32>) 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "delay_at_switch"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x000000000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 317,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata[0].delay_at_switch = (bit<48>) 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "ingress_port"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 318,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata[0].ingress_port = (bit<12>) 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "egress_port"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 319,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata[0].egress_port = (bit<12>) 0"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_1",
+      "id" : 8,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "key_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["mpls[0]", "label_id"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 245,
+            "column" : 4,
+            "source_fragment" : "hdr.mpls[0].label_id"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "NoAction",
+      "id" : 9,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyEgress.set_switch_id",
+      "id" : 10,
+      "runtime_data" : [
+        {
+          "name" : "switch_id",
+          "bitwidth" : 31
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "switch_id"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 335,
+            "column" : 8,
+            "source_fragment" : "hdr.mint_metadata[0].switch_id = (bit<31>)switch_id"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_2",
+      "id" : 11,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "push",
+          "parameters" : [
+            {
+              "type" : "header_stack",
+              "value" : "mint_metadata"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 349,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata.push_front(1)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_3",
+      "id" : 12,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "mint_metadata[0]"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 351,
+            "column" : 5,
+            "source_fragment" : "hdr.mint_metadata[0].setValid()"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_4",
+      "id" : 13,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "bos"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 354,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata[0].bos = 0"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_5",
+      "id" : 14,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "bos"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 357,
+            "column" : 9,
+            "source_fragment" : "hdr.mint_metadata[0].bos = 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_6",
+      "id" : 15,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "deq_timedelta"]
+            },
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "deq_timedelta"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 360,
+            "column" : 6,
+            "source_fragment" : "hdr.mint_metadata[0].deq_timedelta = (bit<32>)standard_metadata.deq_timedelta"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "enq_qdepth"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "enq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 361,
+            "column" : 6,
+            "source_fragment" : "hdr.mint_metadata[0].enq_qdepth = (bit<32>)standard_metadata.enq_qdepth"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "delay_at_switch"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "-",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["standard_metadata", "egress_global_timestamp"]
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["standard_metadata", "ingress_global_timestamp"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 362,
+            "column" : 6,
+            "source_fragment" : "hdr.mint_metadata[0].delay_at_switch = (bit<48>)(standard_metadata.egress_global_timestamp - standard_metadata.ingress_global_timestamp"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "ingress_port"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "ingress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0fff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 363,
+            "column" : 6,
+            "source_fragment" : "hdr.mint_metadata[0].ingress_port = (bit<12>) standard_metadata.ingress_port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata[0]", "egress_port"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0fff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 364,
+            "column" : 6,
+            "source_fragment" : "hdr.mint_metadata[0].egress_port = (bit<12>) standard_metadata.egress_port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "totalLen"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "totalLen"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x001d"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 365,
+            "column" : 6,
+            "source_fragment" : "hdr.ipv4.totalLen = hdr.ipv4.totalLen + 29"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["mint_metadata_hdr", "current_length"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["mint_metadata_hdr", "current_length"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x15"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 366,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata_hdr.current_length = hdr.mint_metadata_hdr.current_length + 21"
+          }
+        }
+      ]
+    }
+  ],
+  "pipelines" : [
+    {
+      "name" : "ingress",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "mint.p4",
+        "line" : 223,
+        "column" : 8,
+        "source_fragment" : "MyIngress"
+      },
+      "init_table" : "MyIngress.mint_status",
+      "tables" : [
+        {
+          "name" : "MyIngress.mint_status",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 267,
+            "column" : 10,
+            "source_fragment" : "mint_status"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [4, 0],
+          "actions" : ["MyIngress.enable_mint", "NoAction"],
+          "base_default_next" : "node_3",
+          "next_tables" : {
+            "MyIngress.enable_mint" : "node_3",
+            "NoAction" : "node_3"
+          },
+          "default_entry" : {
+            "action_id" : 0,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_act",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 280,
+            "column" : 25,
+            "source_fragment" : "= TYPE_MPLS; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [6],
+          "actions" : ["act"],
+          "base_default_next" : "MyIngress.attach_label",
+          "next_tables" : {
+            "act" : "MyIngress.attach_label"
+          },
+          "default_entry" : {
+            "action_id" : 6,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.attach_label",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 255,
+            "column" : 10,
+            "source_fragment" : "attach_label"
+          },
+          "key" : [
+            {
+              "match_type" : "lpm",
+              "name" : "hdr.ipv4.dstAddr",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "lpm",
+          "type" : "simple",
+          "max_size" : 30,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [5, 3],
+          "actions" : ["MyIngress.set_label", "MyIngress.drop"],
+          "base_default_next" : "node_6",
+          "next_tables" : {
+            "MyIngress.set_label" : "node_6",
+            "MyIngress.drop" : "node_6"
+          },
+          "default_entry" : {
+            "action_id" : 3,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_act_0",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 289,
+            "column" : 18,
+            "source_fragment" : "= (bit<1>) 0; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [7],
+          "actions" : ["act_0"],
+          "base_default_next" : "tbl_act_1",
+          "next_tables" : {
+            "act_0" : "tbl_act_1"
+          },
+          "default_entry" : {
+            "action_id" : 7,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_1",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 245,
+            "column" : 4,
+            "source_fragment" : "hdr.mpls[0].label_id"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [8],
+          "actions" : ["act_1"],
+          "base_default_next" : "MyIngress.label_match",
+          "next_tables" : {
+            "act_1" : "MyIngress.label_match"
+          },
+          "default_entry" : {
+            "action_id" : 8,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.label_match",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 243,
+            "column" : 10,
+            "source_fragment" : "label_match"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "hdr.mpls[0].label_id",
+              "target" : ["scalars", "key_0"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 30,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [1, 2],
+          "actions" : ["MyIngress.tunnel_forward", "MyIngress.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.tunnel_forward" : null,
+            "MyIngress.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 2,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_3",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 279,
+            "column" : 4,
+            "source_fragment" : "hdr.ethernet.etherType == TYPE_IPV4"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ethernet", "etherType"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0800"
+              }
+            }
+          },
+          "true_next" : "tbl_act",
+          "false_next" : "node_6"
+        },
+        {
+          "name" : "node_6",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 288,
+            "column" : 4,
+            "source_fragment" : "meta.status == (bit<8>)1 && hdr.mpls[1].isValid() == false"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata.status"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "d2b",
+                      "left" : null,
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["mpls[1]", "$valid$"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "bool",
+                    "value" : false
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_act_0",
+          "false_next" : "tbl_act_1"
+        }
+      ]
+    },
+    {
+      "name" : "egress",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "mint.p4",
+        "line" : 330,
+        "column" : 8,
+        "source_fragment" : "MyEgress"
+      },
+      "init_table" : "node_12",
+      "tables" : [
+        {
+          "name" : "tbl_act_2",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 349,
+            "column" : 2,
+            "source_fragment" : "hdr.mint_metadata.push_front(1)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [11],
+          "actions" : ["act_2"],
+          "base_default_next" : "tbl_act_3",
+          "next_tables" : {
+            "act_2" : "tbl_act_3"
+          },
+          "default_entry" : {
+            "action_id" : 11,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_3",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 351,
+            "column" : 5,
+            "source_fragment" : "hdr.mint_metadata[0].setValid()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [12],
+          "actions" : ["act_3"],
+          "base_default_next" : "MyEgress.switch_id",
+          "next_tables" : {
+            "act_3" : "MyEgress.switch_id"
+          },
+          "default_entry" : {
+            "action_id" : 12,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyEgress.switch_id",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 338,
+            "column" : 10,
+            "source_fragment" : "switch_id"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [10, 9],
+          "actions" : ["MyEgress.set_switch_id", "NoAction"],
+          "base_default_next" : "node_17",
+          "next_tables" : {
+            "MyEgress.set_switch_id" : "node_17",
+            "NoAction" : "node_17"
+          },
+          "default_entry" : {
+            "action_id" : 9,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_act_4",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 354,
+            "column" : 27,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [13],
+          "actions" : ["act_4"],
+          "base_default_next" : "node_20",
+          "next_tables" : {
+            "act_4" : "node_20"
+          },
+          "default_entry" : {
+            "action_id" : 13,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_5",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 357,
+            "column" : 34,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [14],
+          "actions" : ["act_5"],
+          "base_default_next" : "node_20",
+          "next_tables" : {
+            "act_5" : "node_20"
+          },
+          "default_entry" : {
+            "action_id" : 14,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_6",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 360,
+            "column" : 41,
+            "source_fragment" : "= (bit<32>)standard_metadata.deq_timedelta; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [15],
+          "actions" : ["act_6"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "act_6" : null
+          },
+          "default_entry" : {
+            "action_id" : 15,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_12",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 347,
+            "column" : 9,
+            "source_fragment" : "hdr.mpls[2].isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["mpls[2]", "$valid$"]
+              }
+            }
+          },
+          "false_next" : null,
+          "true_next" : "node_13"
+        },
+        {
+          "name" : "node_13",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 348,
+            "column" : 8,
+            "source_fragment" : "hdr.mint_metadata_hdr.hop_limit != 4 -1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "!=",
+              "left" : {
+                "type" : "field",
+                "value" : ["mint_metadata_hdr", "hop_limit"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x03"
+              }
+            }
+          },
+          "true_next" : "tbl_act_2",
+          "false_next" : "tbl_act_3"
+        },
+        {
+          "name" : "node_17",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 353,
+            "column" : 8,
+            "source_fragment" : "hdr.mint_metadata_hdr.hop_limit != 4 -1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "!=",
+              "left" : {
+                "type" : "field",
+                "value" : ["mint_metadata_hdr", "hop_limit"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x03"
+              }
+            }
+          },
+          "true_next" : "tbl_act_4",
+          "false_next" : "tbl_act_5"
+        },
+        {
+          "name" : "node_20",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "mint.p4",
+            "line" : 359,
+            "column" : 9,
+            "source_fragment" : "hdr.mint_metadata_hdr.request_vector == REQUEST_VECTOR"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["mint_metadata_hdr", "request_vector"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x1f"
+              }
+            }
+          },
+          "false_next" : null,
+          "true_next" : "tbl_act_6"
+        }
+      ]
+    }
+  ],
+  "checksums" : [
+    {
+      "name" : "cksum",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "mint.p4",
+        "line" : 378,
+        "column" : 1,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc",
+      "verify" : false,
+      "update" : true,
+      "if_cond" : {
+        "type" : "expression",
+        "value" : {
+          "op" : "d2b",
+          "left" : null,
+          "right" : {
+            "type" : "field",
+            "value" : ["ipv4", "$valid$"]
+          }
+        }
+      }
+    }
+  ],
+  "force_arith" : [],
+  "extern_instances" : [],
+  "field_aliases" : [
+    [
+      "queueing_metadata.enq_timestamp",
+      ["standard_metadata", "enq_timestamp"]
+    ],
+    [
+      "queueing_metadata.enq_qdepth",
+      ["standard_metadata", "enq_qdepth"]
+    ],
+    [
+      "queueing_metadata.deq_timedelta",
+      ["standard_metadata", "deq_timedelta"]
+    ],
+    [
+      "queueing_metadata.deq_qdepth",
+      ["standard_metadata", "deq_qdepth"]
+    ],
+    [
+      "intrinsic_metadata.ingress_global_timestamp",
+      ["standard_metadata", "ingress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.egress_global_timestamp",
+      ["standard_metadata", "egress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.lf_field_list",
+      ["standard_metadata", "lf_field_list"]
+    ],
+    [
+      "intrinsic_metadata.mcast_grp",
+      ["standard_metadata", "mcast_grp"]
+    ],
+    [
+      "intrinsic_metadata.resubmit_flag",
+      ["standard_metadata", "resubmit_flag"]
+    ],
+    [
+      "intrinsic_metadata.egress_rid",
+      ["standard_metadata", "egress_rid"]
+    ],
+    [
+      "intrinsic_metadata.recirculate_flag",
+      ["standard_metadata", "recirculate_flag"]
+    ]
+  ],
+  "program" : "mint.p4",
+  "__meta__" : {
+    "version" : [2, 18],
+    "compiler" : "https://github.com/p4lang/p4c"
+  }
+}
